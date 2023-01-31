@@ -46,7 +46,7 @@ const Cocktails = () => {
                     <h3>{drink.strAlcoholic}</h3>
                     <h4>{drink.strCategory}</h4>
                     <h5>{drink.strDrink}</h5>
-                    <Link to={`/single-product/${drink.idDrink}`}>Details</Link>
+                    <Link to={`/cocktail/${drink.idDrink}`}>Details</Link>
                 </div>
             </div>
 

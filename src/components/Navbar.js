@@ -5,14 +5,14 @@ const Navbar = props => {
   return (
     <section className="header"> 
     <nav className="navbar">
-        <Link to={`/`} className="title">Cocktails</Link>
+        <Link to="/" className="title">Cocktails</Link>
 
         <ul className="lists">
             <li className="list">
                 <Link to={`/contact`}>Contact</Link>
             </li>
             <li className="list">
-                <a href="./Navbar.js">About Us</a>
+                <Link  to="/cocktails">About Us</Link>
             </li>
             <li className="list">
             <Link to={`/cocktails`}>Cocktails</Link>
