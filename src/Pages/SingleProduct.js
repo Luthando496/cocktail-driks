@@ -7,8 +7,8 @@ const SingleProduct = () => {
 
     const single = useSelector(state=> state.product.singlePro)
     const dispatch = useDispatch()
-    const {drinks} = single
-    const drink = drinks[0]
+    // const {drinks} = single && single.drinks
+    // const drink = drinks[0]
     const {id} = useParams()
     console.log(id)
 
@@ -16,7 +16,7 @@ const SingleProduct = () => {
         dispatch(fetchSingleProduct(id))
 
     },[])
-    console.log(drink)
+    console.log(single)
   return (
     <Fragment>
             <div className="back-home">
@@ -26,6 +26,8 @@ const SingleProduct = () => {
     </div>
 
     <div className="single-product">
+    {single && single.drinks && single.drinks.map(drink=>{
+        return (
         <div className="container">
             <div className="card-img">
                 <img src={drink.strDrinkThumb} alt={drink.idDrink} />
@@ -40,7 +42,8 @@ const SingleProduct = () => {
                     <h3>Ingredients :  {drink.strIngredient1} {drink.strIngredient2} {drink.strIngredient3}</h3>
                 </div>
             </div>
-        </div>
+        </div>)
+    })}
     </div>
     </Fragment>
   )
