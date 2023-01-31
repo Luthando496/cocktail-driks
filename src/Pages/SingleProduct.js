@@ -7,7 +7,7 @@ import Loading from '../components/Loading'
 const SingleProduct = () => {
 
     const single = useSelector(state=> state.product.singlePro)
-    const loading = useSelector(state=> state.product.loading)
+    const {singleError,loading} = useSelector(state=> state.product)
     const dispatch = useDispatch()
     // const {drinks} = single && single.drinks
     // const drink = drinks[0]
@@ -27,6 +27,8 @@ const SingleProduct = () => {
         </div>
     </div>
     {loading && <Loading />}
+
+    {singleError && <div className="error"><h1>Sorry something wrong happened</h1><h2>Try refreshing and check your internet connection</h2></div>}
 
     <div className="single-product">
     {single && single.drinks && single.drinks.map(drink=>{

@@ -9,10 +9,7 @@ const Navbar = props => {
 
         <ul className="lists">
             <li className="list">
-                <Link to={`/contact`}>Contact</Link>
-            </li>
-            <li className="list">
-                <Link  to="/cocktails">About Us</Link>
+                <Link  to="/about">About Us</Link>
             </li>
             <li className="list">
             <Link to={`/cocktails`}>Cocktails</Link>

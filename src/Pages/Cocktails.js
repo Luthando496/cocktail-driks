@@ -1,11 +1,11 @@
 import React, { Fragment,useEffect,useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchProducts } from '../store/actions'
-
+import { fetchProducts,searchDrink } from '../store/actions'
+import Loading from '../components/Loading'
 
 const Cocktails = () => {
-    const products = useSelector(state=> state.product.products)
+    const {products,loading,err} = useSelector(state=> state.product)
     const dispatch = useDispatch()
     const [search,setSearch] = useState('')
 
@@ -14,33 +14,42 @@ const Cocktails = () => {
         dispatch(fetchProducts())
 
     },[])
+
+    const Submit = (e)=>{
+        e.preventDefault()
+        dispatch(searchDrink(search))
+        setSearch('')
+    }
+
   return (
     <Fragment>
-            <div class="search" id="search">
-        <div class="container">
-            <form class="form">
-                <div class="content">
-                <div class="title">
+            <div className="search" id="search">
+        <div className="container">
+            <form className="form" onSubmit={Submit}>
+                <div className="content">
+                <div className="title">
                     <h2>Search Your Favorite Cocktail</h2>
                 </div>
-                <div class="input-control">
+                <div className="input-control">
                     <input type="text" placeholder='Search for cocktails' onChange={e=> setSearch(e.target.value)} />
                 </div>
                 </div>
             </form>
         </div>
     </div>
+    {loading && <Loading />}
 
-
-    <div class="cocktails">
-        <div class="container">
-        {products && products.drinks && products.drinks.map((drink)=>{
+    {err && <div className="error"><h1>Sorry something wrong happened</h1><h2>Try refreshing and check your internet connection</h2></div>}
+    {products === null  && <div className="error"><h1>NO COCKTAILS FOUND WITH {search}</h1></div> }
+    <div className="cocktails">
+        <div className="container">
+        {products && products && products.map((drink)=>{
             return (
-            <div class="card" key={drink.idDrink}>
-                <div class="card-img">
+            <div className="card" key={drink.idDrink}>
+                <div className="card-img">
                     <img src={drink.strDrinkThumb} alt={drink.idDrink}/>
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                     <h1>A1</h1>
                     <h2>{drink.strGlass}</h2>
                     <h3>{drink.strAlcoholic}</h3>

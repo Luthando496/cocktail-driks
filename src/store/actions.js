@@ -6,9 +6,11 @@ export const fetchProducts = () => {
     try {
       const { data } = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita");
       dispatch(productActions.fetchProducts(data));
-    } catch (error) {
-      console.log(error);
-      dispatch(productActions.fetchProductsError(error));
+    } catch (err) {
+      console.log(err);
+      dispatch(productActions.fetchProductsError(err.response && err.response.data.message
+        ? err.response.data.message
+        : err.message,));
   }
 }
 }
@@ -28,4 +30,22 @@ export const fetchSingleProduct = (id) => {
           : err.message,));
     }
   }
+}
+
+
+
+export const searchDrink = (search) => {
+  return async (dispatch) => {
+      console.log(search)
+      try {
+        const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`);
+        dispatch(productActions.fetchProducts(data));
+        console.log(data)
+      } catch (err) {
+        console.log(err);
+        dispatch(productActions.productSearchError(err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,));
+    }
   }
+}

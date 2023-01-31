@@ -382,8 +382,8 @@ max-width: 100vw;
 }
 
 .founder .container{
-    width: 85%;
-    margin: 0 auto;
+    /* width: 85%;
+    margin: 0 auto; */
     display: grid;
     grid-template-columns: 2fr 3fr;
     background-color: #ffa94d;
@@ -429,7 +429,7 @@ max-width: 100vw;
 
 .grid-photos{
     max-width: 100vw;
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     position: relative;
 }
 
@@ -533,7 +533,7 @@ max-width: 100vw;
 .footer{
     background-color: black;
     width: 100vw;
-    margin-top: 0.7rem;
+    /* margin-top: 0.2rem; */
     /* height: 20vh; */
 }
 
@@ -776,8 +776,8 @@ input:focus{
   }
   .ldio-7u8p8ug4y0u div > div {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #ff727d;
     animation: ldio-7u8p8ug4y0u 1s linear infinite;
@@ -847,8 +847,8 @@ input:focus{
     transform-origin: 142px 58px;
   }
   .loadingio-spinner-spin-q9qpe3vlzol {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: inline-block;
     overflow: hidden;
     background: #ffffff;
@@ -862,3 +862,29 @@ input:focus{
     transform-origin: 0 0; /* see note above */
   }
   .ldio-7u8p8ug4y0u div { box-sizing: content-box; }
+
+.error{
+    background: #af6868;
+    height: 70vh;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    line-height:1.4;
+    /* text-spacing:2px; */
+}
+
+.error h1{
+    font-size: 4rem;
+    font-family: 'Roboto';
+    font-style: italic;
+    color: lavenderblush;
+}
+
+.error h2{
+    font-size: 3.5rem;
+    font-family: 'Roboto';
+    font-style: italic;
+    color: lavenderblush;
+}
