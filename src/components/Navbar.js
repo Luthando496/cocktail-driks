@@ -16,13 +16,6 @@ const Navbar = props => {
             </li>
         </ul>
 
-        <div className="icons">
-            <div className="icon">
-
-                <i className="fas fa-user fa-3x"></i>
-                  
-            </div>
-        </div>
     </nav>
 </section>
   )
