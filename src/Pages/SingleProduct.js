@@ -2,10 +2,12 @@ import React, { Fragment,useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link,useParams } from 'react-router-dom'
 import { fetchSingleProduct } from '../store/actions'
+import Loading from '../components/Loading'
 
 const SingleProduct = () => {
 
     const single = useSelector(state=> state.product.singlePro)
+    const loading = useSelector(state=> state.product.loading)
     const dispatch = useDispatch()
     // const {drinks} = single && single.drinks
     // const drink = drinks[0]
@@ -24,6 +26,7 @@ const SingleProduct = () => {
             <Link to={`/cocktails`}>Back Home</Link>
         </div>
     </div>
+    {loading && <Loading />}
 
     <div className="single-product">
     {single && single.drinks && single.drinks.map(drink=>{

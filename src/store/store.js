@@ -4,7 +4,7 @@ import {createSlice,configureStore} from '@reduxjs/toolkit'
 
 const productSlice = createSlice({
     name: 'product',
-    initialState: {products: [] ,loading: false,err:null,singlePro:null,singleError:null},
+    initialState: {products: [] ,loading: true,err:null,singlePro:null,singleError:null},
     reducers:{
         fetchProducts(state,action){
             state.loading = true;
@@ -13,6 +13,7 @@ const productSlice = createSlice({
         },
         fetchProductsError(state,action){
             state.err = action.payload;
+            state.loading = false;
         },
         singleFetch(state,action){
             state.loading = true;
