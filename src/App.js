@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import SingleProduct from './Pages/SingleProduct';
 import Cocktails from './Pages/Cocktails';
+import About from './Pages/About';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
     <Routes>
        <Route path='/' element={<Home />} />
+       <Route path='/about' element={<About />} />
        <Route path='/cocktails' element={<Cocktails />} />
        <Route path='/cocktail/:id' element={<SingleProduct />} />
     </Routes>
